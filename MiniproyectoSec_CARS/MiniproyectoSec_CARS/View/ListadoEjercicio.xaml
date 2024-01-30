@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniproyectoSec_CARS.View.ListadoEjercicio"
+             NavigationPage.HasNavigationBar="False">
+    <Grid RowDefinitions="60,*"
+          BackgroundColor="#222222">
+        <Label Text="proyecto" FontSize="35" HorizontalOptions="Center"
+               VerticalOptions="Center" FontAttributes="Bold,Italic"
+               TextColor="#55ff77"
+               />
+        <CollectionView BackgroundColor="#113311"
+                        Grid.Row="1"
+                        ItemsSource="{Binding ListaEjercicios}"
+                        Margin="0,0,0,0"
+                        SelectedItem="{Binding Select}"
+                        SelectionMode="Single"
+                        
+                        >
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="2"
+                                 HorizontalItemSpacing="10"
+                                 VerticalItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="100,*"
+                        Margin="0,10,0,0">
+
+                        <Frame Grid.Row="1" WidthRequest="250"
+                            HorizontalOptions="Center"
+                            CornerRadius="15"
+                            Margin="15,-85,10,0"
+                            BackgroundColor="Gray"
+                            HasShadow="True">
+
+                            <StackLayout
+                                Margin="0,10,0,0">
+                                <Label Text="Kilos Bajados:"
+                                       FontSize="15"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Kilos}"
+                                       CharacterSpacing="1"
+                                       FontSize="20"
+                                       Margin="0,0,0,20"/>
+                                
+                                <Label Text="Distacia Recorrida:"
+                                       FontSize="15"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Distancia}"
+                                    CharacterSpacing="1"
+                                    FontSize="20"
+                                    Margin="0,0,0,20"/>
+                                
+                                <Label Text="Calorias Quemadas:"
+                                       FontAttributes="Bold"
+                                       FontSize="15"/>
+                                <Label Text="{Binding Calorias}"
+                                    CharacterSpacing="1"
+                                    FontSize="20"
+                                    Margin="0,0,0,20"/>
+                            </StackLayout>
+                        </Frame>
+
+                    </Grid>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <Button Text="+"
+                Grid.Row="1"
+                HeightRequest="100"
+                WidthRequest="100"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                CornerRadius="50"
+                Margin="15"
+                FontSize="50"
+                FontAttributes="Bold"
+                BackgroundColor="#FFD755"
+                Command="{Binding Iraregistrocommand}"/>
+        <Button Text="-"
+                Grid.Row="1"
+                HeightRequest="100"
+                WidthRequest="100"
+                VerticalOptions="End"
+                HorizontalOptions="Start"
+                CornerRadius="50"
+                Margin="15"
+                FontSize="50"
+                FontAttributes="Bold"
+                BackgroundColor="Red"
+                Command="{Binding deletecommand}">
+
+
+        </Button>
+        
+
+
+        <Button Text="E"
+                Grid.Row="1"
+                HeightRequest="100"
+                WidthRequest="100"
+                VerticalOptions="End"
+                HorizontalOptions="Center"
+                CornerRadius="50"
+                Margin="15"
+                FontSize="50"
+                FontAttributes="Bold"
+                BackgroundColor="Green"
+                Command="{Binding IraEditcommand}"
+                />
+
+    </Grid>
+</ContentPage>
